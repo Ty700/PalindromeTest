@@ -1,0 +1,70 @@
+/*
+*  Author: Tyler Scotti
+*  Date: Feb 2, 2023
+*
+*  Description: This program takes a word or phrase and will determine if given word or phrase is a palindrome.
+*  Logic: First, for any input it will remove all white spaces with the erase and remove function.
+*  Then, in the for loop, it evaluates each index's ASCII value with its mirrored counterpart.
+*  How it calculates which index to compare it to is a litte tricky to explain.
+* 
+*  Conditions: We have a 7 letter word like racecar.
+*  First, it gets the index we are looking at, say 2. We need two to be compared with index 4.  
+*  We can do this by taking the absoulte value of the index we are looking at, and subtracting it by the total 
+*  input size - 1. So, for this example:
+* 
+*  
+*  0 and abs(0-6) = 0 and 6 are compared
+*  1 and abs(1-6) = 1 and 5 are compared
+*  2 and abs(2 - 6) = 2 and 4 are compared
+*  3 and abs(3-6) = 3 and 3 are compared.
+*
+*  If the ASCII values at any of these do not equal each other, then the word can't be a palindrome, thus makes it false.
+*  But if all ASCII values at each index, and its mirrored index, are the same than it can be! Thus, makes palindrome = true;
+*  
+*  Faults: Since we are comparing ASCII values it doesn't compute that M == m. Thus it says "Mom" isn't a palindrome, but "mom" is.
+*  We can easy fix this by changing all indexs in input to a lowercase and then compare them after, but that can be a future add-on.
+*/
+
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cmath>
+#include <cstdio>
+#include<algorithm>
+
+using namespace std;
+
+int main() {
+   
+//Variable Initialization
+   string input;
+   int size;
+   bool palindrome;
+   int i;
+
+//User Input
+   cout << "Enter in a word or phrase: " << endl;
+   getline(cin, input);
+   string untouched  = input; //Copy of input. We modify input to test it. We copy it to output the same thing user entered. If we ouput are modified string (input) it would look weird to the user.
+   
+//Removing Whitespace from input
+   input.erase(remove(input.begin(), input.end(), ' '), input.end());
+   
+//Logic for evaluating if palindrome or not
+   for (i=0; i<input.size(); i++){
+     if(input.at(i) != input.at(fabs(i - (static_cast<int>(input.size()-1))))){
+        palindrome = false;
+        break; //Breaks loop if any index ASCII value != mirrored index ASCII value
+      } else {
+        palindrome = true;
+      }
+   }
+   
+//Output logic
+   if(palindrome == true){
+      cout << "palindrome: " << untouched << endl;
+   } else { 
+      cout << "not a palindrome: " << untouched << endl;
+   }
+   return 0;
+}
