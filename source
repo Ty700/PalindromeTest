@@ -3,6 +3,7 @@
 *  Date: Feb 2, 2023
 *
 *  Description: This program takes a word or phrase and will determine if given word or phrase is a palindrome.
+*
 *  Logic: First, for any input it will remove all white spaces with the erase and remove function.
 *  Then, in the for loop, it evaluates each index's ASCII value with its mirrored counterpart.
 *  How it calculates which index to compare it to is a litte tricky to explain.
