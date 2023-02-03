@@ -13,10 +13,10 @@
 *  input size - 1. So, for this example:
 * 
 *  
-*  0 and abs(0-6) = 0 and 6 are compared
-*  1 and abs(1-6) = 1 and 5 are compared
+*  0 and abs(0 - 6) = 0 and 6 are compared
+*  1 and abs(1 - 6) = 1 and 5 are compared
 *  2 and abs(2 - 6) = 2 and 4 are compared
-*  3 and abs(3-6) = 3 and 3 are compared.
+*  3 and abs(3 - 6) = 3 and 3 are compared.
 *
 *  If the ASCII values at any of these do not equal each other, then the word can't be a palindrome, thus makes it false.
 *  But if all ASCII values at each index, and its mirrored index, are the same than it can be! Thus, makes palindrome = true;
