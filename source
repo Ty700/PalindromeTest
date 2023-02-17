@@ -56,8 +56,9 @@ int main() {
      if(input.at(i) != input.at(fabs(i - (static_cast<int>(input.size()-1))))){
         palindrome = false;
         break; //Breaks loop if any index ASCII value != mirrored index ASCII value
-      } else {
-        palindrome = true;
+      } 
+      if(i == input.size()-1){
+         palindrome = true;
       }
    }
    
